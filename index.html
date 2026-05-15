@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topeur — Lecteur de conduite professionnel</title>
+  <meta name="description" content="Topeur est un lecteur de conduite professionnel pour le théâtre et l'événementiel. Audio, MIDI, OSC, Fade, Wait — tout en un." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────────────────── -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">
+          <div class="nav__logo-mark">T</div>
+          Topeur
+          <span class="nav__badge">Beta</span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="#fonctionnalites">Fonctionnalités</a></li>
+          <li><a href="#compatibilite">Compatibilité</a></li>
+          <li class="nav__cta"><a href="telechargements.html">Télécharger</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ───────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="container">
+
+      <div class="hero__eyebrow">
+        <span class="hero__eyebrow-dot"></span>
+        Développement actif — Beta disponible
+      </div>
+
+      <h1 class="hero__title">
+        La conduite de spectacle,<br />
+        <span>repensée.</span>
+      </h1>
+
+      <p class="hero__subtitle">
+        Topeur est un lecteur de conduite professionnel pour le théâtre et l'événementiel.
+        Audio, Vidéo, MIDI, OSC, fondus, temporisations, groupes — tout s'enchaîne avec un seul appui sur <span class="mono">Espace</span>.
+      </p>
+
+      <div class="hero__actions">
+        <a href="https://github.com/TheRealKeutu/Topeur_Releases/releases" class="btn btn-primary btn-lg">
+          Télécharger la beta
+        </a>
+        <a href="#fonctionnalites" class="btn btn-secondary btn-lg">
+          Découvrir les fonctionnalités
+        </a>
+      </div>
+
+      <!-- Screenshot réel de l'application -->
+      <div class="hero__screenshot">
+        <img
+          src="assets/img/screenshot.png"
+          alt="Interface de Topeur — liste de cues, transport GO/PANIC, inspector"
+          width="900"
+          height="563"
+          loading="eager"
+        />
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── Philosophie ────────────────────────────────────────── -->
+  <section id="philosophie">
+    <div class="container">
+
+      <p class="section-label">Philosophie</p>
+      <h2 class="section-title">L'outil s'efface.<br />Le spectacle reste.</h2>
+      <p class="section-desc">
+        L'opérateur ne doit pas penser à l'outil — il doit penser au spectacle.
+        Topeur repose sur quatre principes fondamentaux.
+      </p>
+
+      <div class="philosophy__grid">
+
+        <div class="philosophy__card">
+          <div class="philosophy__icon">🎯</div>
+          <h3>Prévisibilité</h3>
+          <p>Ce qui est configuré est ce qui se joue. Aucun comportement caché, aucune surprise en représentation.</p>
+        </div>
+
+        <div class="philosophy__card">
+          <div class="philosophy__icon">🔒</div>
+          <h3>Robustesse</h3>
+          <p>L'audio et le MIDI tournent dans des threads dédiés, indépendants de l'interface. Un ralentissement graphique n'affecte jamais la lecture.</p>
+        </div>
+
+        <div class="philosophy__card">
+          <div class="philosophy__icon">📦</div>
+          <h3>Portabilité</h3>
+          <p>Un projet est un bundle autonome. Copiez le dossier sur une autre machine, ouvrez-le, jouez. Rien à reconfigurer.</p>
+        </div>
+
+        <div class="philosophy__card">
+          <div class="philosophy__icon">🔌</div>
+          <h3>Interopérabilité</h3>
+          <p>Topeur parle MIDI et OSC nativement — les deux protocoles standard de l'industrie du spectacle, en entrée comme en sortie.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── Types de cues ─────────────────────────────────────── -->
+  <section id="fonctionnalites">
+    <div class="container">
+
+      <p class="section-label">Types de cues</p>
+      <h2 class="section-title">Cues combinables<br />et chaînables librement.</h2>
+      <p class="section-desc">
+        Chaque élément sonore, chaque message de contrôle, chaque temporisation
+        devient une cue numérotée. Enchaînez-les, groupez-les, automatisez-les.
+      </p>
+
+      <div class="cues__grid">
+
+        <div class="cue-card">
+          <span class="cue-badge audio">AUDIO</span>
+          <div>
+            <h3>Audio</h3>
+            <p>Lecture de fichiers audio (WAV, MP3, FLAC, OGG, AIFF, M4A, Opus) avec contrôle de volume, points In/Out et boucle sample-accurate.</p>
+          </div>
+        </div>
+
+        <div class="cue-card">
+          <span class="cue-badge fade">FADE</span>
+          <div>
+            <h3>Fade</h3>
+            <p>Transition de volume vers une cue audio cible, avec durée et volume cible configurables. Option d'arrêt automatique en fin de fade.</p>
+          </div>
+        </div>
+
+        <div class="cue-card">
+          <span class="cue-badge wait">WAIT</span>
+          <div>
+            <h3>Wait</h3>
+            <p>Pause temporisée avec décompte visuel. S'enchaîne automatiquement sur la cue suivante — idéal pour les transitions minutées.</p>
+          </div>
+        </div>
+
+                <div class="cue-card">
+          <span class="cue-badge text">TEXT</span>
+          <div>
+            <h3>Text</h3>
+            <p>Affichage de texte sur l'écran, avec contrôle de position, couleur et police.</p>
+          </div>
+        </div>
+
+        <div class="cue-card">
+          <span class="cue-badge midi">MIDI</span>
+          <div>
+            <h3>MIDI</h3>
+            <p>Envoi de messages MIDI (Note On/Off, Control Change, Program Change, SysEx) vers n'importe quel équipement externe.</p>
+          </div>
+        </div>
+
+        <div class="cue-card">
+          <span class="cue-badge osc">OSC</span>
+          <div>
+            <h3>OSC</h3>
+            <p>Envoi de messages Open Sound Control via UDP. Compatible QLab, consoles lumière, serveurs vidéo — avec arguments typés.</p>
+          </div>
+        </div>
+
+        <div class="cue-card">
+          <span class="cue-badge group">GROUPE</span>
+          <div>
+            <h3>Groupe</h3>
+            <p>Regroupe plusieurs cues en un bloc : exécution simultanée, séquentielle ou aléatoire, avec option de bouclage interne.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── Points forts ──────────────────────────────────────── -->
+  <section id="points-forts">
+    <div class="container">
+
+      <p class="section-label">Points forts</p>
+      <h2 class="section-title">Conçu pour la scène,<br />pas pour le bureau.</h2>
+      <p class="section-desc">
+        Chaque décision technique vise un seul objectif : que la représentation se déroule sans accroc, quoi qu'il arrive.
+      </p>
+
+      <div class="features__grid">
+
+        <div class="feature-item">
+          <div class="feature-item__icon">⚡</div>
+          <h3>Moteur audio temps-réel</h3>
+          <p>Lecture, fade et seek s'exécutent dans un thread dédié. Les performances graphiques n'impactent jamais la lecture.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item__icon">🔁</div>
+          <h3>Boucle sample-accurate</h3>
+          <p>Les boucles audio sont gapless — aucun silence, aucun artéfact aux jonctions de boucle.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item__icon">〰️</div>
+          <h3>Waveform interactive</h3>
+          <p>Zoom, seek, scrub et poignées de trim In/Out directement sur la forme d'onde. Cache binaire pour un rechargement instantané.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item__icon">🎛️</div>
+          <h3>MIDI Learn intégré</h3>
+          <p>Un clic, le prochain message reçu est capturé. Mappings persistés entre les sessions, avec wildcards sur canal, note et CC.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item__icon">🌐</div>
+          <h3>OSC entrant et sortant</h3>
+          <p>Écoute sur un port UDP configurable et envoi depuis les cues. Correspondance par adresse exacte ou wildcard.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item__icon">🚨</div>
+          <h3>PANIC d'urgence</h3>
+          <p>Appuyez sur <span class="mono">Échap</span> : fade out général en 3 secondes sur toutes les cues actives, puis arrêt complet.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── Compatibilité ─────────────────────────────────────── -->
+  <section id="compatibilite">
+    <div class="container">
+
+      <p class="section-label">Compatibilité</p>
+      <h2 class="section-title">Natif sur les trois<br />plateformes principales.</h2>
+      <p class="section-desc">
+        Mêmes fonctionnalités partout. Un projet créé sur macOS s'ouvre sans modification sur Windows ou Linux.
+      </p>
+
+      <div class="compat__grid">
+
+        <div class="compat__card">
+          <div class="compat__os-icon"></div>
+          <h3>macOS</h3>
+          <p>Intel & Apple Silicon<br />CoreMIDI natif</p>
+          <span class="compat__format">.app bundle</span>
+        </div>
+
+        <div class="compat__card">
+          <div class="compat__os-icon"></div>
+          <h3>Windows</h3>
+          <p>x86_64<br />MME MIDI natif</p>
+          <span class="compat__format">Installeur NSIS</span>
+        </div>
+
+        <div class="compat__card">
+          <div class="compat__os-icon"></div>
+          <h3>Linux</h3>
+          <p>x86_64<br />ALSA MIDI natif</p>
+          <span class="compat__format">AppImage · .deb</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── CTA ───────────────────────────────────────────────── -->
+  <section>
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Prêt à essayer votre nouveauTopeur ?</h2>
+        <p>
+          La beta est disponible gratuitement sur toutes les plateformes.
+          Évaluation complète, toutes fonctionnalités incluses.
+        </p>
+        <div class="cta-banner__actions">
+          <a href="telechargements.html" class="btn btn-primary btn-lg">
+            Télécharger la beta
+          </a>
+          <a href="https://github.com/TheRealKeutu/topeur" target="_blank" class="btn btn-secondary btn-lg">
+            Voir sur GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ────────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer">
+        <div class="footer__left">
+          <span class="footer__logo">Topeur</span>
+          <span class="footer__sep">·</span>
+          <span class="footer__copy">Développé par Thomas Gouazé</span>
+        </div>
+        <ul class="footer__links">
+          <li><a href="telechargements.html">Téléchargements</a></li>
+          <li><a href="https://github.com/TheRealKeutu/topeur" target="_blank">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
