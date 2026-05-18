@@ -8,7 +8,7 @@ https://discord.gg/CeeZTNthB
 
 It helps you prepare a show as a clear cue list, then run it live with a simple **GO** button. Audio, video, waits, fades, MIDI, OSC, text notes, groups and Lua scripts can all be organized in the same project.
 
-Topeur is currently in active development. The current app version is **0.14.0**.
+Topeur is currently in active development. The current app version is **0.15.1**.
 
 ### What You Can Do
 
@@ -95,7 +95,7 @@ A free 60-day trial is available. See [LICENSE](./LICENSE) for full terms.
 
 Il permet de préparer un spectacle sous forme de liste de cues claire, puis de le jouer en direct avec un simple bouton **GO**. Audio, vidéo, attentes, fades, MIDI, OSC, notes, groupes et scripts Lua peuvent être organisés dans le même projet.
 
-Topeur est en développement actif. La version actuelle de l'application est **0.14.0**.
+Topeur est en développement actif. La version actuelle de l'application est **0.15.1**.
 
 ### Ce Que Vous Pouvez Faire
 
