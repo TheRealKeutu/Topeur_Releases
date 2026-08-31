@@ -4,7 +4,7 @@ Topeur est un lecteur de conduite pour le theatre, le spectacle vivant et
 l'evenementiel. Il permet de preparer un spectacle sous forme de liste de cues,
 puis de l'executer en direct avec un bouton **GO**.
 
-Version actuelle : **0.21.0**
+Version actuelle : **0.22.0**
 
 Discord : https://discord.gg/CeeZTNthB
 
@@ -232,6 +232,15 @@ depend de la plateforme.
 
 Topeur est une application Tauri 2 avec un moteur Rust et une interface Svelte 5.
 
+Documentation du projet :
+
+- [Guide operateur](./docs/guide-operateur.md) : preparation, conduite,
+  controles avant spectacle et gestion d'incident.
+- [Limites connues](./docs/limites-connues.md) : contraintes a prendre en
+  compte avant une exploitation.
+- [Architecture technique](./docs/architecture-technique.md) : composants,
+  contrats, persistance, tests et release.
+
 Prerequis :
 
 - Node.js 20.19 minimum (ou 22.12 et versions ulterieures) et npm
@@ -278,7 +287,7 @@ est facultative et n'accorde pas de droits supplementaires. Voir
 Topeur is a cue player for theatre, live performance and events. It lets you
 prepare a show as a cue list, then run it live with a **GO** button.
 
-Current version: **0.21.0**
+Current version: **0.22.0**
 
 Discord: https://discord.gg/CeeZTNthB
 
