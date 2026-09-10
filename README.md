@@ -1,10 +1,10 @@
 # Topeur
 
 Topeur est un lecteur de conduite pour le theatre, le spectacle vivant et
-l'evenementiel. Il permet de preparer un spectacle sous forme de liste de cues,
+l'evenementiel. Il permet de preparer un spectacle sous forme de liste de tops,
 puis de l'executer en direct avec un bouton **GO**.
 
-Version actuelle : **0.22.0**
+Version actuelle : **0.24.0**
 
 Discord : https://discord.gg/CeeZTNthB
 
@@ -17,32 +17,32 @@ Discord : https://discord.gg/CeeZTNthB
   glisser-deposer.
 - Cartoucheur audio/video integre, redimensionnable et detachable, avec import
   direct, glisser-deposer, reorganisation et declenchement instantane.
-- Cues audio avec points In/Out, boucle, volume, trim, waveform et routage vers
+- Tops audio avec points In/Out, boucle, volume, trim, waveform et routage vers
   des sorties nommees.
-- Cues video avec sorties dediees, preload, freeze at end, opacite, audio
+- Tops video avec sorties dediees, preload, freeze at end, opacite, audio
   embarque, routage audio et offsets de synchronisation.
-- Cues image avec duree optionnelle, opacite, mode d'ajustement et sortie video.
+- Tops image avec duree optionnelle, opacite, mode d'ajustement et sortie video.
 - Geometrie, rotation, ancrage, recadrage, masques et prereglages PiP communs
-  aux cues video et image.
-- Cues Titre avec texte secondaire, modeles, style complet et modification en direct.
-- Cues Wait, Timer, Action, MIDI, OSC, Timecode, Group, Text et Script Lua.
+  aux tops video et image.
+- Tops Titre avec texte secondaire, modeles, style complet et modification en direct.
+- Tops Wait, Timer, Action, MIDI, OSC, Timecode, Group, Text et Script Lua.
 - Reception, generation et regeneration de timecode MTC/LTC, horloge interne et
-  declenchement de cues au franchissement d'une position SMPTE.
+  declenchement de tops au franchissement d'une position SMPTE.
 - Groupes en lecture simultanee, sequentielle ou aleatoire.
-- Auto-follow pour enchainer automatiquement les cues, y compris les timers et
-  les cues placees dans des groupes.
+- Auto-follow pour enchainer automatiquement les tops, y compris les timers et
+  les tops placees dans des groupes.
 - Fade others, fade selectionne, Stop All et Panic : fade global puis arret des
-  cues actives. Fade others agit aussi sur les surfaces visuelles, avec une
-  portee configurable et une protection cue par cue.
-- Declenchement direct d'une cue par raccourci clavier ou mapping MIDI/OSC,
+  tops actifs. Fade others agit aussi sur les surfaces visuelles, avec une
+  portee configurable et une protection top par top.
+- Declenchement direct d'un top par raccourci clavier ou mapping MIDI/OSC,
   configurable dans l'Inspector.
 - Delais de securite independants pour la conduite et le cartoucheur afin
   d'eviter les doubles declenchements accidentels.
 - Preferences audio, video, MIDI, OSC et timecode par projet, raccourcis de
   transport configurables et reglages avances de preload/synchronisation video.
-- Panneaux Active Cues et Cartoucheur detachables, Inspector, logs moteur,
+- Panneaux Active Tops et Cartoucheur detachables, Inspector, logs moteur,
   diagnostics video et aide.
-- Suivi des cues actives restaure a l'ouverture d'un panneau detache ; une video
+- Suivi des tops actifs restaure a l'ouverture d'un panneau detache ; une video
   en freeze at end reste active jusqu'a son arret explicite.
 - Sauvegarde automatique, copies de secours, reouverture du dernier projet et
   restauration de la disposition des fenetres. Si le descripteur principal d'un
@@ -50,10 +50,18 @@ Discord : https://discord.gg/CeeZTNthB
   secours valide la plus recente.
 - Sauvegarde de projets portables au format `.topeur`, avec validation avant
   ecriture, progression de copie des medias et acces direct au dossier du projet.
-- Export de la conduite au format XLSX, avec choix des cues a exporter.
+- Export de la conduite au format XLSX, avec choix des tops a exporter.
 - Interface localisee en francais et en anglais.
 
-## Types de cues
+## Interface régie
+
+La nouvelle disposition place la conduite au centre, les lectures actives à
+droite et le prochain GO dans un transport permanent. Le cartoucheur et
+l’inspecteur sont des fenêtres natives indépendantes.
+Un double-clic ouvre les réglages dans un inspecteur flottant et épinglable,
+avec une waveform horizontale. Voir [le guide de l’interface](docs/ui-regie.md).
+
+## Types de tops
 
 | Type | Role |
 |---|---|
@@ -61,25 +69,25 @@ Discord : https://discord.gg/CeeZTNthB
 | Video | Lit une video sur une sortie dediee, avec preload, freeze, opacite et audio embarque optionnel. |
 | Image | Affiche une image sur une sortie video, avec duree optionnelle, opacite et mode d'ajustement. |
 | Titre | Affiche un titre ou bandeau superposable, stylable et modifiable en direct. |
-| Action | Pilote une cue, un groupe ou toutes les cues actives : fondu de volume/opacite, pause, reprise, arret, demarrage ou redemarrage. |
+| Action | Pilote un top, un groupe ou tous les tops actifs : fondu de volume/opacite, pause, reprise, arret, demarrage ou redemarrage. |
 | Wait | Attend une duree avant de continuer la conduite. |
 | Timer | Affiche un compte a rebours ou un minuteur sur une sortie video. |
 | MIDI | Envoie des messages Note, Control Change, Program Change ou SysEx. |
 | OSC | Envoie des messages OSC avec arguments types. |
 | Timecode | Genere une plage MTC ou LTC, avec cadence, debut, fin et sortie dediee. |
-| Group | Declenche plusieurs cues ensemble, en sequence ou dans un ordre aleatoire. |
+| Group | Declenche plusieurs tops ensemble, en sequence ou dans un ordre aleatoire. |
 | Text | Ajoute une note ou un separateur visible dans la conduite. |
 | Script | Execute un script Lua pour les besoins avances. |
 
 ## Cartoucheur et declenchements directs
 
-Les cues audio, video et image peuvent etre placees dans le **Cartoucheur**. Elles
-restent dans le projet mais sont exclues de l'ordre de lecture de la conduite.
-Le panneau accepte l'import et le glisser-deposer, peut etre redimensionne ou
-detache dans une fenetre flottante, et permet de copier, coller, dupliquer,
+Les tops audio, video et image peuvent etre places dans le **Cartoucheur**. Ils
+restent dans le projet mais sont exclus de l'ordre de lecture de la conduite.
+Le panneau s’ouvre dans une fenetre independante et redimensionnable. Il accepte
+l’import et le glisser-deposer, et permet de copier, coller, dupliquer,
 reorganiser ou supprimer ses cartouches.
 
-L'onglet **Declenchement** de l'Inspector permet d'attribuer a chaque cue une
+L'onglet **Declenchement** de l'Inspector permet d'attribuer a chaque top une
 touche du clavier ainsi qu'un ou plusieurs messages MIDI ou OSC. Les entrees et
 leurs mappings se configurent dans les Preferences. Deux delais minimums
 distincts protegent la conduite et le cartoucheur contre les declenchements
@@ -94,15 +102,15 @@ Le projet PiP conserve ses geometries lorsque ses medias fictifs sont reconnecte
 ## Comportements en lecture
 
 - **Panic** applique le fade global configure dans les Preferences, puis arrete
-  toutes les cues actives. **Stop All** les arrete immediatement, sans fade.
+  tous les tops actifs. **Stop All** les arrete immediatement, sans fade.
 - Un timer sans Auto-follow reste actif apres zero pour afficher le temps
   depasse. Avec Auto-follow ou dans un groupe, il se termine a zero et declenche
   la suite.
-- **Freeze at End** conserve la derniere image et maintient la cue video active
+- **Freeze at End** conserve la derniere image et maintient le top video actif
   jusqu'a un Stop ou au remplacement de son image.
-- **Fade Others** agit sur les cues audio et les surfaces visuelles actives,
-  notamment les videos, images et timers. Sa portee peut viser les cues soeurs,
-  la liste ou le cartoucheur courant, ou toutes les cues. Une cue protegee
+- **Fade Others** agit sur les tops audio et les surfaces visuelles actives,
+  notamment les videos, images et timers. Sa portee peut viser les tops soeurs,
+  la liste ou le cartoucheur courant, ou tous les tops. Un top protege
   ignore Fade Others, mais reste sensible a Panic, Fade All, Stop All et aux
   fades cibles.
 - Les sorties video et leur ecran se configurent dans les Preferences. Les
@@ -117,9 +125,9 @@ generation interne et reception avec regeneration. L'entree peut etre un port
 MTC dedie ou un canal audio LTC ; la sortie peut etre MTC ou LTC. Les cadences
 24, 25, 29,97 DF/NDF et 30 fps sont prises en charge.
 
-Une cue peut etre armee sur une position timecode absolue. Le declenchement est
+Un top peut etre arme sur une position timecode absolue. Le declenchement est
 effectue par le moteur lors du franchissement de cette position, avec politiques
-configurables pour les sauts avant et le reverrouillage. Une cue **Timecode**
+configurables pour les sauts avant et le reverrouillage. Un top **Timecode**
 distincte sert a emettre une plage MTC ou LTC pendant la conduite. Un canal LTC
 doit toujours etre reserve au timecode et ne jamais etre envoye vers des
 enceintes.
@@ -159,11 +167,11 @@ affichee.
 ## Export XLSX
 
 La conduite peut etre exportee en fichier Excel `.xlsx` depuis le menu
-**File > Export cue list as XLSX...**. L'export peut inclure toute la conduite
-ou une selection de cues par type et par cue.
+**File > Export top list as XLSX...**. L'export peut inclure toute la conduite
+ou une selection de tops par type et par top.
 
-Le fichier genere une feuille `Cue List` avec le titre du projet, une ligne
-d'en-tetes figee, un filtre automatique et les couleurs de cues reportees sur
+Le fichier genere une feuille `Top List` avec le titre du projet, une ligne
+d'en-tetes figee, un filtre automatique et les couleurs de tops reportees sur
 les lignes.
 
 Les colonnes exportees sont :
@@ -184,21 +192,21 @@ Les colonnes exportees sont :
 | Raccourci | Action |
 |---|---|
 | `Espace` | GO |
-| `Echap` | Panic : fade de toutes les cues actives, puis arret |
-| `X` | Arreter immediatement toutes les cues |
+| `Echap` | Panic : fade de tous les tops actifs, puis arret |
+| `X` | Arreter immediatement tous les tops |
 | `Haut` / `Bas` | Naviguer dans la conduite |
 | `Cmd/Ctrl+N` | Nouveau projet |
 | `Cmd/Ctrl+O` | Ouvrir un projet |
 | `Cmd/Ctrl+S` | Enregistrer |
 | `Cmd/Ctrl+Shift+S` | Enregistrer sous |
 | `Cmd/Ctrl+Z` | Annuler |
-| `Cmd/Ctrl+C` / `Cmd/Ctrl+V` | Copier / coller des cues |
+| `Cmd/Ctrl+C` / `Cmd/Ctrl+V` | Copier / coller des tops |
 | `Cmd/Ctrl+D` | Dupliquer la selection |
 | `Cmd/Ctrl+A` | Tout selectionner |
-| `Cmd/Ctrl+R` | Renumeroter les cues |
+| `Cmd/Ctrl+R` | Renumeroter les tops |
 | `Cmd/Ctrl+Backspace` ou `Cmd/Ctrl+Delete` | Supprimer la selection |
 | `Cmd/Ctrl+I` | Afficher / masquer l'Inspector |
-| `Cmd/Ctrl+K` | Afficher / masquer Active Cues |
+| `Cmd/Ctrl+K` | Afficher / masquer Active Tops |
 | `Cmd/Ctrl+L` | Afficher / masquer le Cartoucheur |
 | `Cmd/Ctrl+Shift+L` | Afficher / masquer les logs |
 | `Cmd/Ctrl+,` | Preferences |
@@ -225,52 +233,8 @@ Video supportee par la WebView systeme :
   en exploitation spectacle.
 
 Les images courantes prises en charge par la WebView (PNG, JPEG, WebP, GIF, BMP
-et SVG) peuvent etre utilisees comme cues image. Leur compatibilite exacte
+et SVG) peuvent etre utilisees comme tops image. Leur compatibilite exacte
 depend de la plateforme.
-
-## Developpement
-
-Topeur est une application Tauri 2 avec un moteur Rust et une interface Svelte 5.
-
-Documentation du projet :
-
-- [Guide operateur](./docs/guide-operateur.md) : preparation, conduite,
-  controles avant spectacle et gestion d'incident.
-- [Limites connues](./docs/limites-connues.md) : contraintes a prendre en
-  compte avant une exploitation.
-- [Architecture technique](./docs/architecture-technique.md) : composants,
-  contrats, persistance, tests et release.
-
-Prerequis :
-
-- Node.js 20.19 minimum (ou 22.12 et versions ulterieures) et npm
-- Rust stable
-- La toolchain systeme requise par Tauri pour la plateforme cible
-
-Commandes utiles :
-
-```bash
-cd ui
-npm install
-npm run dev
-npm run check
-npm run test
-npm run build
-```
-
-Pour lancer l'application desktop en developpement :
-
-```bash
-cd src-tauri
-cargo tauri dev
-```
-
-Pour produire un bundle :
-
-```bash
-cd src-tauri
-cargo tauri build
-```
 
 ## Licence
 
@@ -284,56 +248,56 @@ est facultative et n'accorde pas de droits supplementaires. Voir
 
 # Topeur
 
-Topeur is a cue player for theatre, live performance and events. It lets you
-prepare a show as a cue list, then run it live with a **GO** button.
+Topeur is a top player for theatre, live performance and events. It lets you
+prepare a show as a top list, then run it live with a **GO** button.
 
-Current version: **0.22.0**
+Current version: **0.24.0**
 
 Discord: https://discord.gg/CeeZTNthB
 
 ## Features
 
-- Numbered cue list with selection, multi-selection, colors, notes,
+- Numbered top list with selection, multi-selection, colors, notes,
   enable/disable, renumbering, copy, paste, duplicate and undo.
 - Audio, video and image import through file dialogs or drag and drop.
 - Integrated resizable and detachable Audio/Video Cart with direct import,
   drag-and-drop, reordering and instant triggering.
-- Audio cues with In/Out points, loop, volume, trim, waveform and routing to
+- Audio tops with In/Out points, loop, volume, trim, waveform and routing to
   named outputs.
-- Video cues with dedicated outputs, preload, freeze at end, opacity, embedded
+- Video tops with dedicated outputs, preload, freeze at end, opacity, embedded
   audio, audio routing and sync offsets.
-- Image cues with an optional duration, opacity, fit mode and video output.
+- Image tops with an optional duration, opacity, fit mode and video output.
 - Shared geometry, rotation, anchor, crop, masks and PiP presets for video and
-  image cues.
-- Title cues with secondary text, templates, full styling and live updates.
-- Wait, Timer, Action, MIDI, OSC, Timecode, Group, Text and Lua Script cues.
+  image tops.
+- Title tops with secondary text, templates, full styling and live updates.
+- Wait, Timer, Action, MIDI, OSC, Timecode, Group, Text and Lua Script tops.
 - MTC/LTC timecode reception, generation and regeneration, an internal clock,
-  and cue triggers when an SMPTE position is crossed.
+  and top triggers when an SMPTE position is crossed.
 - Groups in simultaneous, sequential or random playback modes.
-- Auto-follow to chain cues automatically, including timers and cues inside
+- Auto-follow to chain tops automatically, including timers and tops inside
   groups.
-- Fade others, selected fade, Stop All and Panic: global fade, then stop active
-  cues. Fade others also applies to visual surfaces, with a configurable scope
-  and per-cue protection.
-- Direct cue triggering through keyboard shortcuts or MIDI/OSC mappings,
+- Fade others, selected fade, Stop All and Panic: global fade, then stop actif
+  tops. Fade others also applies to visual surfaces, with a configurable scope
+  and per-top protection.
+- Direct top triggering through keyboard shortcuts or MIDI/OSC mappings,
   configured in the Inspector.
-- Independent safety delays for the cue list and Audio Cart to prevent
+- Independent safety delays for the top list and Audio Cart to prevent
   accidental double triggers.
 - Per-project audio, video, MIDI, OSC and timecode preferences, configurable
   transport shortcuts and advanced video preload/synchronization settings.
-- Detachable Active Cues and Audio Cart panels, Inspector, engine logs, video
+- Detachable Active Tops and Audio Cart panels, Inspector, engine logs, video
   diagnostics and help panels.
-- Active cue state is restored when a detached panel opens; a freeze-at-end
+- Active top state is restored when a detached panel opens; a freeze-at-end
   video remains active until it is explicitly stopped.
 - Automatic saving, backup copies, reopening of the last project and window
   layout restoration. If a bundle's main descriptor is empty or unreadable,
   opening automatically tries the newest valid backup.
 - Portable project saving in `.topeur` format, with validation before writing,
   media-copy progress and direct access to the project folder.
-- Cue list export to XLSX, with selectable cues.
+- Top list export to XLSX, with selectable tops.
 - Interface localized in French and English.
 
-## Cue Types
+## Top Types
 
 | Type | Role |
 |---|---|
@@ -341,26 +305,26 @@ Discord: https://discord.gg/CeeZTNthB
 | Video | Plays a video on a dedicated output, with preload, freeze, opacity and optional embedded audio. |
 | Image | Displays a still on a video output, with optional duration, opacity and fit mode. |
 | Title | Displays a styled, live-editable title or lower third over a video output. |
-| Action | Controls a cue, group, or all active cues: volume/opacity fade, pause, resume, stop, start, or restart. |
-| Wait | Waits for a duration before continuing the cue list. |
+| Action | Controls a top, group, or all active tops: volume/opacity fade, pause, resume, stop, start, or restart. |
+| Wait | Waits for a duration before continuing the top list. |
 | Timer | Displays a countdown or count-up timer on a video output. |
 | MIDI | Sends Note, Control Change, Program Change or SysEx messages. |
 | OSC | Sends OSC messages with typed arguments. |
 | Timecode | Generates an MTC or LTC range, with a frame rate, start, end and dedicated output. |
-| Group | Triggers several cues together, in sequence or in random order. |
-| Text | Adds a note or separator visible in the cue list. |
+| Group | Triggers several tops together, in sequence or in random order. |
+| Text | Adds a note or separator visible in the top list. |
 | Script | Runs a Lua script for advanced needs. |
 
 ## Audio Cart and Direct Triggers
 
-Audio, video and image cues can be placed in the **Audio Cart**. They remain part of
-the project but are excluded from the sequential cue-list playback order. The
-panel supports importing and drag-and-drop, can be resized or detached into a
-floating window, and lets you copy, paste, duplicate, reorder or delete carts.
+Audio, video and image tops can be placed in the **Audio Cart**. They remain part of
+the project but are excluded from the sequential top-list playback order. The
+panel opens in an independent, resizable window, supports importing and drag-and-drop,
+and lets you copy, paste, duplicate, reorder or delete carts.
 
 The Inspector's **Trigger** tab lets you assign a keyboard key and one or more
-MIDI or OSC messages to each cue. Inputs and mappings are configured in
-Preferences. Separate minimum delays protect the cue list and Audio Cart from
+MIDI or OSC messages to each top. Inputs and mappings are configured in
+Preferences. Separate minimum delays protect the top list and Audio Cart from
 repeated triggers; setting a delay to `0` disables that protection.
 
 ## Visual Examples
@@ -372,15 +336,15 @@ placeholder media in the PiP project preserves all its geometry settings.
 ## Playback Behavior
 
 - **Panic** applies the global fade configured in Preferences and then stops all
-  active cues. **Stop All** stops them immediately without a fade.
+  active tops. **Stop All** stops them immediately without a fade.
 - A timer without Auto-follow remains active after zero to display overtime.
   With Auto-follow or inside a group, it completes at zero and triggers the next
-  cue.
-- **Freeze at End** holds the last frame and keeps the video cue active until it
+  top.
+- **Freeze at End** holds the last frame and keeps the video top actif until it
   is stopped or its image is replaced.
-- **Fade Others** applies to active audio cues and visual surfaces, including
-  videos, images and timers. Its scope can target sibling cues, the current cue
-  list or Audio Cart, or all cues. A protected cue ignores Fade Others but still
+- **Fade Others** applies to active audio tops and visual surfaces, including
+  videos, images and timers. Its scope can target sibling tops, the current top
+  list or Audio Cart, or all tops. A protected top ignores Fade Others but still
   responds to Panic, Fade All, Stop All and targeted fades.
 - Video outputs and their monitor are configured in Preferences. Advanced
   settings cover the preload limit, A/V and reveal offsets, startup compensation
@@ -394,9 +358,9 @@ and receive with regeneration. Input can use a dedicated MTC port or an LTC
 audio channel; output can be MTC or LTC. Frame rates of 24, 25, 29.97 DF/NDF and
 30 fps are supported.
 
-A cue can be armed at an absolute timecode position. The engine fires it when
+A top can be armed at an absolute timecode position. The engine fires it when
 that position is crossed, using configurable forward-jump and relock policies.
-A separate **Timecode** cue emits an MTC or LTC range during cue-list playback.
+A separate **Timecode** top emits an MTC or LTC range during top-list playback.
 Always reserve an LTC channel for timecode and never route it to loudspeakers.
 
 ## Auto-save and Backups
@@ -431,12 +395,12 @@ and a clear error is displayed.
 
 ## XLSX Export
 
-The cue list can be exported as an Excel `.xlsx` file from
-**File > Export cue list as XLSX...**. The export can include the whole cue list
-or a cue selection by type and by cue.
+The top list can be exported as an Excel `.xlsx` file from
+**File > Export top list as XLSX...**. The export can include the whole top list
+or a top selection by type and by top.
 
-The generated file contains a `Cue List` sheet with the project title, a frozen
-header row, an automatic filter and cue colors applied to rows.
+The generated file contains a `Top List` sheet with the project title, a frozen
+header row, an automatic filter and top colors applied to rows.
 
 Exported columns are:
 
@@ -456,21 +420,21 @@ Exported columns are:
 | Shortcut | Action |
 |---|---|
 | `Space` | GO |
-| `Esc` | Panic: fade all active cues, then stop |
-| `X` | Stop all cues immediately |
-| `Up` / `Down` | Navigate through the cue list |
+| `Esc` | Panic: fade all active tops, then stop |
+| `X` | Stop all tops immediately |
+| `Up` / `Down` | Navigate through the top list |
 | `Cmd/Ctrl+N` | New project |
 | `Cmd/Ctrl+O` | Open project |
 | `Cmd/Ctrl+S` | Save |
 | `Cmd/Ctrl+Shift+S` | Save as |
 | `Cmd/Ctrl+Z` | Undo |
-| `Cmd/Ctrl+C` / `Cmd/Ctrl+V` | Copy / paste cues |
+| `Cmd/Ctrl+C` / `Cmd/Ctrl+V` | Copy / paste tops |
 | `Cmd/Ctrl+D` | Duplicate selection |
 | `Cmd/Ctrl+A` | Select all |
-| `Cmd/Ctrl+R` | Renumber cues |
+| `Cmd/Ctrl+R` | Renumber tops |
 | `Cmd/Ctrl+Backspace` or `Cmd/Ctrl+Delete` | Delete selection |
 | `Cmd/Ctrl+I` | Show / hide Inspector |
-| `Cmd/Ctrl+K` | Show / hide Active Cues |
+| `Cmd/Ctrl+K` | Show / hide Active Tops |
 | `Cmd/Ctrl+L` | Show / hide Audio Cart |
 | `Cmd/Ctrl+Shift+L` | Show / hide logs |
 | `Cmd/Ctrl+,` | Preferences |
@@ -497,43 +461,8 @@ Video supported by the system WebView:
   live show operation.
 
 Common image formats supported by the WebView (PNG, JPEG, WebP, GIF, BMP and
-SVG) can be used for image cues. Exact compatibility depends on the
+SVG) can be used for image tops. Exact compatibility depends on the
 platform.
-
-## Development
-
-Topeur is a Tauri 2 application with a Rust engine and a Svelte 5 interface.
-
-Requirements:
-
-- Node.js 20.19 or later (or 22.12 and later) and npm
-- Rust stable
-- The system toolchain required by Tauri for the target platform
-
-Useful commands:
-
-```bash
-cd ui
-npm install
-npm run dev
-npm run check
-npm run test
-npm run build
-```
-
-To run the desktop app in development:
-
-```bash
-cd src-tauri
-cargo tauri dev
-```
-
-To build a bundle:
-
-```bash
-cd src-tauri
-cargo tauri build
-```
 
 ## License
 
